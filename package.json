@@ -56,7 +56,8 @@
     "slick": "1.12.2",
     "tinycolor2": "1.4.1",
     "tinymce": "4.5.8",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "webpack": "^4.29.6"
   },
   "devDependencies": {
     "aliasify": "2.1.0",
@@ -100,13 +101,16 @@
     "mockery": "2.1.0",
     "nodemailer": "6.0.0",
     "superagent": ">=3.7.0",
-    "uglifyify": "5.0.1"
+    "uglifyify": "5.0.1",
+    "webpack-cli": "^3.3.0"
   },
   "author": "Stefano Bagnara",
   "license": "GPL-3.0",
   "licenseurl": "https://www.gnu.org/licenses/gpl-3.0.en.html",
   "scripts": {
-    "test": "grunt jasmine_node"
+    "test": "grunt jasmine_node",
+    "dev": "webpack --mode developement",
+    "build": "webpack --mode production"
   },
   "engines": {
     "node": ">= 6.0.0",

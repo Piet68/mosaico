@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="rs/mosaico-libs-and-tinymce.min.css?v=__VERSION__" />
     <link rel="stylesheet" href="rs/mosaico-material.min.css?v=__VERSION__" />
 
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <script src="rs/mosaico-libs-and-tinymce.min.js?v=__VERSION__"></script>
     <script>
       var initialEdits = [];
@@ -183,7 +187,7 @@ a, a:link, a:visited {
     <!-- /ko -->
     </div>
     <!-- /ko -->
-    <div class="content" style="background-color: white; margin-top: -20px; padding-top: 15px; background-origin: border; padding-bottom: 2em">
+    <div class="content" style="background-color: white; margin-top: -20px; padding-top: 15px; background-origin: border-box; padding-bottom: 2em">
     <h3>Choose a master template</h3>
     <div data-bind="foreach: templates">
       <div class="template template-xx" style="" data-bind="attr: { class: 'template template-'+name }">

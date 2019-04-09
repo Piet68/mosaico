@@ -6,18 +6,43 @@
   <meta name="format-detection" content="telephone=no">
   <title style="-ko-bind-text: @titleText">TITLE</title>
   <style type="text/css">
-    @supports -ko-blockdefs {
-      id { widget: id }
-      size { label: Size; widget: select; options: 8|9|10|11|12|13|14|15|16|18|20|22|25|28|31; }
-      visible { label: Visible?; widget: boolean }
-      color { label: Color; widget: color }
-      radius {
-        label: Corner Radius;
-        widget: integer;
-        max: 20;
-        help: Attention - this property is not supported on all email clients (i.e. Outlook)
-      }
-      face { label: Font; widget: select; options: Arial, Helvetica, sans-serif=Arial|Arial Black, Arial Black, Gadget, sans-serif=Arial Black|Comic Sans MS, Comic Sans MS5, cursive=Comic Sans|Courier New, Courier New, monospace=Courier|Georgia, serif=Georgia|Impact, sans-serif=Impact|Lucida Console, Monaco, monospace=Lucida Console|Lucida Sans Unicode, Lucida Grande, sans-serif=Lucida Sans Unicode|Times New Roman, Times, serif=Times New Roman|Verdana, Geneva, sans-serif=Verdana}
+    @supports {-ko-blockdefs }
+
+        id {
+            widget: id
+        }
+
+        size {
+            label: Size;
+            widget: select;
+            options: 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 18 | 20 | 22 | 25 | 28 | 31;
+        }
+
+        visible {
+            widget: boolean
+        }
+
+        visible {
+            label: Visible ?;
+        }
+
+        color {
+            label: Color;
+            widget: color
+        }
+
+        radius {
+            label: Corner Radius;
+            widget: integer;
+            max: 20;
+        );
+        }
+
+        radius {
+            help: Attention -this property is not supported on all email clients (i . e . Outlook
+        }
+
+        face { label: Font; widget: select; options: Arial, Helvetica, sans-serif=Arial|Arial Black, Arial Black, Gadget, sans-serif=Arial Black|Comic Sans MS, Comic Sans MS5, cursive=Comic Sans|Courier New, Courier New, monospace=Courier|Georgia, serif=Georgia|Impact, sans-serif=Impact|Lucida Console, Monaco, monospace=Lucida Console|Lucida Sans Unicode, Lucida Grande, sans-serif=Lucida Sans Unicode|Times New Roman, Times, serif=Times New Roman|Verdana, Geneva, sans-serif=Verdana}
       decoration { label: Decoration; widget: select; options: none=None|underline=Underline }
       linksColor { label: Link Color; extend: color }
       linksDecoration { label: Underlined Links?; extend: decoration }
@@ -54,8 +79,14 @@
       }
      
       hrStyle { label: Separator Style;properties:color hrWidth hrHeight; }
-      hrStyle:preview { height: 200%; width: 200%; bottom: 20px; -ko-border-bottom: @[hrHeight]px solid @color; }
-      preheaderVisible { label: Show Preheader; extend: visible; help: Preheader block is the first one on the top of the page. It contains web version link and optionally unsubscribe link or a preheader text that will be shown as a preview on some email clients; }
+      hrStyle:preview { height: 200%; width: 200%; bottom: 20px;
+      }
+
+    hrStyle:preview {
+        -ko-border-bottom: @[hrHeight]px solid @color;
+    }
+
+    preheaderVisible { label: Show Preheader; extend: visible; help: Preheader block is the first one on the top of the page. It contains web version link and optionally unsubscribe link or a preheader text that will be shown as a preview on some email clients; }
 
       /* content types */
       blocks { label: Blocks; properties: blocks[]; }
