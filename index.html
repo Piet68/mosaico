@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=480, initial-scale=1">
+    <title>Mosaico Email Editor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="title" content="Email Editor"  />
+
+    <link rel="stylesheet" href="dist/mosaico-material.min.css" />
+    <link rel="stylesheet" href="dist/vendor/notoregular/stylesheet.css" />
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <style>
+        a.template-name{
+            font-size:18px;
+            padding-top:4px;
+        }
+    </style>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="dist/vendor/knockout.js"></script>
+    <script src="dist/vendor/jquery.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: 'list.php',
+                type: 'post',
+                success: function( data, textStatus, jQxhr ){
+                    $('#saved').append(data);
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log('Database Error');
+                }
+            });
+            // New Template
+            $('button.new').on('click',function(){
+                var name = prompt("Template Name", "");
+                if (name != null) {
+                    document.location = 'editor.html?name='+name;
+                }
+            });
+            // Rename Template
+            $('body').on('click','.rename',function(){
+                var dataid = $(this).data('id');
+                var rename = prompt("Rename Template", "");
+                if (rename != null) {
+                    $.ajax({
+                        url:"update.php", // Path to update.php
+                        type:"POST",
+                        data:{'action':'rename','name':rename,'hash':dataid},
+                        success:function(){
+                            location.reload();
+                        },
+                        error:function(){
+                            console.log('Error');
+                        }
+                    });
+                }
+            });
+            // Delete Template
+            $('body').on('click','.delete',function(){
+                var dataid = $(this).data('id');
+                if (confirm('Are you sure you want to delete this template?')) {
+                    $.ajax({
+                        url:"update.php", // Path to update.php
+                        type:"POST",
+                        data:{'action':'delete','hash':dataid},
+                        success:function(){
+                            location.reload();
+                        },
+                        error:function(){
+                            console.log('Error');
+                        }
+                    });
+                }
+            });
+            // Duplicate Template
+            /*$('body').on('click','.duplicate',function(){
+              var rnd = Math.random().toString(36).substr(2, 7);
+              var dataid = $(this).data('id');
+                $.ajax({
+                    url:"update.php",
+                    type:"POST",
+                    data:{'action':'duplicate','hash':dataid,'copy':rnd},
+                    success:function(){
+                      location.reload();
+                    },
+                    error:function(){
+                      console.log('Error');
+                    }
+                });
+            });*/
+        });
+    </script>
+    <style>
+    </style>
+
+
+</head>
+<body>
+<div class="container text-center">
+    <h2>Email Editor</h2>
+    <br/><br>
+
+    <ul id="saved"></ul>
+
+    <br/><br/>
+    <button class="btn btn-primary new">New Template</button>
+    <br/><br/>
+    <hr/>
+    <p class="text-center">&copy;2016 Your Company</p>
+
+</div>
+
+</body>
+</html>
