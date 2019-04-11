@@ -11,10 +11,10 @@ $config = [
     /* Url for image serving in final download */
     SERVE_URL => "https://YOUR_EMAIL_IMAGE_SERVER_URL/",
     /* Base Url for accessing Mosaco */
-    BASE_URL => "http://mosaico.test/",
+    BASE_URL => "http://mosaico.test",
 
     /* local file system base path to where image directories are located */
-    BASE_DIR => "/var/www/mosaico/",
+    BASE_DIR => "/var/www/mosaico",
 
     /* url to the uploads folder (relative to BASE_URL) */
     UPLOADS_URL => "uploads/",

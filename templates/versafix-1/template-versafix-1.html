@@ -11,37 +11,29 @@
         id {
             widget: id
         }
-
         size {
             label: Size;
             widget: select;
             options: 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 18 | 20 | 22 | 25 | 28 | 31;
         }
-
         visible {
             widget: boolean
         }
-
         visible {
             label: Visible ?;
         }
-
         color {
             label: Color;
             widget: color
         }
-
         radius {
             label: Corner Radius;
             widget: integer;
             max: 20;
-        );
         }
-
         radius {
             help: Attention -this property is not supported on all email clients (i . e . Outlook
         }
-
         face { label: Font; widget: select; options: Arial, Helvetica, sans-serif=Arial|Arial Black, Arial Black, Gadget, sans-serif=Arial Black|Comic Sans MS, Comic Sans MS5, cursive=Comic Sans|Courier New, Courier New, monospace=Courier|Georgia, serif=Georgia|Impact, sans-serif=Impact|Lucida Console, Monaco, monospace=Lucida Console|Lucida Sans Unicode, Lucida Grande, sans-serif=Lucida Sans Unicode|Times New Roman, Times, serif=Times New Roman|Verdana, Geneva, sans-serif=Verdana}
       decoration { label: Decoration; widget: select; options: none=None|underline=Underline }
       linksColor { label: Link Color; extend: color }

@@ -7,9 +7,10 @@
 
     <meta name="title" content="Email Editor"  />
 
-    <link rel="stylesheet" href="dist/mosaico-material.min.css" />
+    <link rel="stylesheet" href="dist/rs/mosaico-material.min.css" />
     <link rel="stylesheet" href="dist/vendor/notoregular/stylesheet.css" />
     <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         a.template-name{
             font-size:18px;
@@ -46,7 +47,7 @@
             // Rename Template
             $('body').on('click','.rename',function(){
                 var dataid = $(this).data('id');
-                var rename = prompt("Rename Template", "");
+                var rename = prompt("Rename Template", $(this).html());
                 if (rename != null) {
                     $.ajax({
                         url:"update.php", // Path to update.php

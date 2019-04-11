@@ -1,6 +1,6 @@
 module.exports = {
     entry: {
-        app:'./src/html/index.html'
+        app:'./app/backend-php/main.js'
     },
     module: {
         rules: [
